@@ -32,7 +32,7 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.b = inputs.rf2 || inputs.rf6;
     outputs.x = inputs.rf3;
     outputs.y = inputs.rt1;
-    outputs.buttonL = inputs.rf8; // Don't need this but in new profile make it rf6
+    // outputs.buttonL = inputs.rf8;
     outputs.buttonR = inputs.rf3 || inputs.rf8;
     outputs.triggerLDigital = inputs.rf4;
     outputs.triggerRDigital = inputs.rf5;
@@ -77,21 +77,22 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
 
     bool shield_button_pressed = inputs.lf4 || inputs.lf5;
 
+    // IF MX IS PRESSED
     if (inputs.lt1) { // Set this to lt2
         // MX + Horizontal = 6625 = 53
         if (directions.horizontal) {
             outputs.leftStickX = 128 + (directions.x * 53);
             // Horizontal Shield tilt = 51
-            if (shield_button_pressed) {
+            if (shield_button_pressed) { // TEST WHAT THIS DOES WITHOUT THIS
                 outputs.leftStickX = 128 + (directions.x * 51);
             }
             // Horizontal Tilts = 36
-            if (inputs.rt1) {
+            if (inputs.rt1) { // TEST WHAT THIS DOES WITHOUT IT
                 outputs.leftStickX = 128 + (directions.x * 36);
             }
         }
         // MX + Vertical = 44
-        if (directions.vertical) {
+        if (directions.vertical) { 
             outputs.leftStickY = 128 + (directions.y * 44);
             // Vertical Shield Tilt = 51
             if (shield_button_pressed) {
@@ -294,3 +295,4 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
 }
+
