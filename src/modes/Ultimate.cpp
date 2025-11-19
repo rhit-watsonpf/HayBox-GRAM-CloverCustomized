@@ -8,13 +8,33 @@
 Ultimate::Ultimate() : ControllerMode() {}
 
 void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outputs) {
-    outputs.a = inputs.rt1;
-    outputs.b = inputs.rf1;
-    outputs.x = inputs.rf2;
-    outputs.y = inputs.rf6;
-    outputs.buttonL = inputs.rf7;
+    // rt1 = center thumb right
+    // rt2 = c stick down
+    // rt3 = c stick left
+    // rt4 = c stick up
+    // rt5 = c stick right
+    
+    // rf1 = bottom point right
+    // rf2 = bottom middle right
+    // rf3 = bottom ring right
+    // rf4 = bottom pinkie right
+    // rf5 = top pointer right
+    // rf6 = top middle right
+    // rf7 = top ring right
+    // rf8 = top pinkie right
+    
+    // lf1 = point left
+    // lf2 = middle left
+    // lf3 = ring left
+    // lf4 = pinkie left
+    // lf5 = top middle left
+    outputs.a = inputs.rf1;
+    outputs.b = inputs.rf2 || inputs.rf6;
+    outputs.x = inputs.rf3;
+    outputs.y = inputs.rt1;
+    outputs.buttonL = inputs.rf8; // Don't need this but in new profile make it rf6
     outputs.buttonR = inputs.rf3 || inputs.rf8;
-    outputs.triggerLDigital = inputs.lf4;
+    outputs.triggerLDigital = inputs.rf4;
     outputs.triggerRDigital = inputs.rf5;
     outputs.start = inputs.mb1;
 
@@ -44,7 +64,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         inputs.lf3, // Left
         inputs.lf1, // Right
         inputs.lf2, // Down
-        inputs.rf4, // Up
+        inputs.lf4, // Up
         inputs.rt3, // C-Left
         inputs.rt5, // C-Right
         inputs.rt2, // C-Down
@@ -55,9 +75,9 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs
     );
 
-    bool shield_button_pressed = inputs.lf4 || inputs.rf5;
+    bool shield_button_pressed = inputs.lf4 || inputs.lf5;
 
-    if (inputs.lt1) {
+    if (inputs.lt1) { // Set this to lt2
         // MX + Horizontal = 6625 = 53
         if (directions.horizontal) {
             outputs.leftStickX = 128 + (directions.x * 53);
@@ -272,4 +292,5 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs.leftStickX = inputs.nunchuk_x;
         outputs.leftStickY = inputs.nunchuk_y;
     }
+
 }
