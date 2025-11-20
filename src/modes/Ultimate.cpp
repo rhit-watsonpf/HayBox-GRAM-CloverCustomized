@@ -132,37 +132,37 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             }
 
             /* Extended Up B Angles */
-            if (inputs.rf1) {
-                // (33.29) = 67 44
-                outputs.leftStickX = 128 + (directions.x * 67);
-                outputs.leftStickY = 128 + (directions.y * 44);
-                // (39.38) = 67 55
-                if (inputs.rt2) {
-                    outputs.leftStickX = 128 + (directions.x * 67);
-                    outputs.leftStickY = 128 + (directions.y * 55);
-                }
-                // (36.18) = 67 49
-                if (inputs.rt3) {
-                    outputs.leftStickX = 128 + (directions.x * 67);
-                    outputs.leftStickY = 128 + (directions.y * 49);
-                }
-                // (30.2) = 67 39
-                if (inputs.rt4) {
-                    outputs.leftStickX = 128 + (directions.x * 67);
-                    outputs.leftStickY = 128 + (directions.y * 39);
-                }
-                // (27.58) = 67 35
-                if (inputs.rt5) {
-                    outputs.leftStickX = 128 + (directions.x * 67);
-                    outputs.leftStickY = 128 + (directions.y * 35);
-                }
-            }
+            // if (inputs.rf1) {
+            //     // (33.29) = 67 44
+            //     outputs.leftStickX = 128 + (directions.x * 67);
+            //     outputs.leftStickY = 128 + (directions.y * 44);
+            //     // (39.38) = 67 55
+            //     if (inputs.rt2) {
+            //         outputs.leftStickX = 128 + (directions.x * 67);
+            //         outputs.leftStickY = 128 + (directions.y * 55);
+            //     }
+            //     // (36.18) = 67 49
+            //     if (inputs.rt3) {
+            //         outputs.leftStickX = 128 + (directions.x * 67);
+            //         outputs.leftStickY = 128 + (directions.y * 49);
+            //     }
+            //     // (30.2) = 67 39
+            //     if (inputs.rt4) {
+            //         outputs.leftStickX = 128 + (directions.x * 67);
+            //         outputs.leftStickY = 128 + (directions.y * 39);
+            //     }
+            //     // (27.58) = 67 35
+            //     if (inputs.rt5) {
+            //         outputs.leftStickX = 128 + (directions.x * 67);
+            //         outputs.leftStickY = 128 + (directions.y * 35);
+            //     }
+            // }
 
             // Angled fsmash/ftilt with C-Stick + MX
-            if (directions.cx != 0) {
-                outputs.rightStickX = 128 + (directions.cx * 127);
-                outputs.rightStickY = 128 + (directions.y * 59);
-            }
+            // if (directions.cx != 0) {
+            //     outputs.rightStickX = 128 + (directions.cx * 127);
+            //     outputs.rightStickY = 128 + (directions.y * 59);
+            // }
 
             // Angled Ftilts
             if (inputs.rt1) {
@@ -295,4 +295,5 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
 }
+
 
