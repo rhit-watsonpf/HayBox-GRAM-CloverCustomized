@@ -46,8 +46,8 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
         outputs.dpadRight = inputs.rt5;
     }
 
-    // Turn on extra button layer when holding empty button and mx
-    if(inputs.rf8 && inputs.lt2){
+    // Turn on extra button layer when holding empty button and quiet button
+    if(inputs.rf8 && inputs.lf5){
         outputs.capture = inputs.rf5;
         outputs.select = inputs.rf6;
         outputs.home = inputs.rf7;
@@ -303,6 +303,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
 }
+
 
 
 
