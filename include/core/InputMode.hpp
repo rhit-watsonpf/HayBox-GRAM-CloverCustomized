@@ -17,7 +17,7 @@ class InputMode {
     GameModeConfig *_config = nullptr;
 
     virtual void HandleSocd(InputState &inputs);
-    virtual void HandleRemap(const InputState &original_inputs, InputState &remapped_inputs);
+    // virtual void HandleRemap(const InputState &original_inputs, InputState &remapped_inputs);
 
   private:
     socd::SocdState _socd_states[10] = {};
