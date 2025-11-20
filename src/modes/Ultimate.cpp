@@ -106,11 +106,11 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                 outputs.leftStickY = 128 + (directions.y * 51);
             }
         }
-        if (directions.diagonal && shield_button_pressed) {
-            // MX + L, R, LS, and MS + q1/2/3/4 = 6375 3750 = 51 30
-            outputs.leftStickX = 128 + (directions.x * 51);
-            outputs.leftStickY = 128 + (directions.y * 30);
-        }
+        // if (directions.diagonal && shield_button_pressed) {
+        //     // MX + L, R, LS, and MS + q1/2/3/4 = 6375 3750 = 51 30
+        //     outputs.leftStickX = 128 + (directions.x * 51);
+        //     outputs.leftStickY = 128 + (directions.y * 30);
+        // }
 
         /* Up B angles */
         if (directions.diagonal && !shield_button_pressed) {
@@ -179,7 +179,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         }
     }
 
-    if (inputs.lt2) {
+    if (inputs.lt2) { // Change this to lt1
         // MY + Horizontal (even if shield is held) = 41
         if (directions.horizontal) {
             outputs.leftStickX = 128 + (directions.x * 41);
@@ -192,28 +192,29 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         if (directions.vertical) {
             outputs.leftStickY = 128 + (directions.y * 53);
             // MY Vertical Tilts
+            // WHY????????
             if (inputs.rt1) {
                 outputs.leftStickY = 128 + (directions.y * 36);
             }
         }
-        if (directions.diagonal) {
-            // MY + q1/2/3/4 = 35 59
-            outputs.leftStickX = 128 + (directions.x * 35);
-            outputs.leftStickY = 128 + (directions.y * 53);
-            if (shield_button_pressed) {
-                // MY + L, R, LS, and MS + q1/2 = 38 70
-                outputs.leftStickX = 128 + (directions.x * 38);
-                outputs.leftStickY = 128 + (directions.y * 70);
-                // MY + L, R, LS, and MS + q3/4 = 40 68
-                if (directions.x == -1) {
-                    outputs.leftStickX = 128 + (directions.x * 40);
-                    outputs.leftStickY = 128 + (directions.y * 68);
-                }
-            }
-        }
+        // if (directions.diagonal) {
+        //     // MY + q1/2/3/4 = 35 59
+        //     outputs.leftStickX = 128 + (directions.x * 35);
+        //     outputs.leftStickY = 128 + (directions.y * 53);
+        //     if (shield_button_pressed) {
+        //         // MY + L, R, LS, and MS + q1/2 = 38 70
+        //         outputs.leftStickX = 128 + (directions.x * 38);
+        //         outputs.leftStickY = 128 + (directions.y * 70);
+        //         // MY + L, R, LS, and MS + q3/4 = 40 68
+        //         if (directions.x == -1) {
+        //             outputs.leftStickX = 128 + (directions.x * 40);
+        //             outputs.leftStickY = 128 + (directions.y * 68);
+        //         }
+        //     }
+        // }
 
         /* Up B angles */
-        if (directions.diagonal && !shield_button_pressed) {
+        if (directions.diagonal) {
             // (56.56) = 35 53
             outputs.leftStickX = 128 + (directions.x * 35);
             outputs.leftStickY = 128 + (directions.y * 53);
@@ -239,31 +240,31 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             }
 
             /* Extended Up B Angles */
-            if (inputs.rf1) {
-                // (56.71) = 44 67
-                outputs.leftStickX = 128 + (directions.x * 44);
-                outputs.leftStickY = 128 + (directions.y * 67);
-                // (50.62) = 55 67
-                if (inputs.rt2) {
-                    outputs.leftStickX = 128 + (directions.x * 55);
-                    outputs.leftStickY = 128 + (directions.y * 67);
-                }
-                // (53.82) = 49 67
-                if (inputs.rt3) {
-                    outputs.leftStickX = 128 + (directions.x * 49);
-                    outputs.leftStickY = 128 + (directions.y * 67);
-                }
-                // (59.8) = 39 67
-                if (inputs.rt4) {
-                    outputs.leftStickX = 128 + (directions.x * 39);
-                    outputs.leftStickY = 128 + (directions.y * 67);
-                }
-                // (62.42) = 35 67
-                if (inputs.rt5) {
-                    outputs.leftStickX = 128 + (directions.x * 35);
-                    outputs.leftStickY = 128 + (directions.y * 67);
-                }
-            }
+            // if (inputs.rf1) {
+            //     // (56.71) = 44 67
+            //     outputs.leftStickX = 128 + (directions.x * 44);
+            //     outputs.leftStickY = 128 + (directions.y * 67);
+            //     // (50.62) = 55 67
+            //     if (inputs.rt2) {
+            //         outputs.leftStickX = 128 + (directions.x * 55);
+            //         outputs.leftStickY = 128 + (directions.y * 67);
+            //     }
+            //     // (53.82) = 49 67
+            //     if (inputs.rt3) {
+            //         outputs.leftStickX = 128 + (directions.x * 49);
+            //         outputs.leftStickY = 128 + (directions.y * 67);
+            //     }
+            //     // (59.8) = 39 67
+            //     if (inputs.rt4) {
+            //         outputs.leftStickX = 128 + (directions.x * 39);
+            //         outputs.leftStickY = 128 + (directions.y * 67);
+            //     }
+            //     // (62.42) = 35 67
+            //     if (inputs.rt5) {
+            //         outputs.leftStickX = 128 + (directions.x * 35);
+            //         outputs.leftStickY = 128 + (directions.y * 67);
+            //     }
+            // }
 
             // MY Pivot Uptilt/Dtilt
             if (inputs.rt1) {
@@ -302,6 +303,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
 }
+
 
 
 
