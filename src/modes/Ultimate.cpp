@@ -38,12 +38,19 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.triggerRDigital = inputs.rf5;
     outputs.start = inputs.mb1;
 
-    // Turn on D-Pad layer by holding Mod X + Mod Y or Nunchuk C button.
-    if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c || inputs.lf5) {
+    // Turn on D-Pad layer by holding empty button
+    if (inputs.rf8) {
         outputs.dpadUp = inputs.rt4;
         outputs.dpadDown = inputs.rt2;
         outputs.dpadLeft = inputs.rt3;
         outputs.dpadRight = inputs.rt5;
+    }
+
+    // Turn on extra button layer when holding empty button and mx
+    if(inputs.rf8 && inputs.lt2){
+        outputs.capture = inputs.rf5;
+        outputs.select = inputs.rf6;
+        outputs.home = inputs.rf7;
     }
 
     // Hidden Buttons for remapp.ing options
@@ -295,5 +302,6 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
 }
+
 
 
