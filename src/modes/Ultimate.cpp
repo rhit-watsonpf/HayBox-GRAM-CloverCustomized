@@ -276,33 +276,34 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
 
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
     // angled fsmash).
-    if (directions.cx != 0 && directions.cy != 0) {
-        // 5250 8500 = 42 68
-        outputs.rightStickX = 128 + (directions.cx * 42);
-        outputs.rightStickY = 128 + (directions.cy * 68);
+    // if (directions.cx != 0 && directions.cy != 0) {
+    //     // 5250 8500 = 42 68
+    //     outputs.rightStickX = 128 + (directions.cx * 42);
+    //     outputs.rightStickY = 128 + (directions.cy * 68);
+    // }
+
+    // Make it so that if rf8 is pressed it inverts all the outputs
+    if(inputs.rf8){
+        outputs.leftStickX = 128 - (outputs.leftStickX - 128);
+        outputs.leftStickY = 128 - (outputs.leftStickY - 128);
     }
 
-    if (inputs.lf4) {
+    if (inputs.lf5) {
         outputs.triggerLAnalog = 140;
     }
 
-    if (inputs.rf5) {
+    if (inputs.rf4) {
         outputs.triggerRAnalog = 140;
     }
 
     // Shut off C-stick when using D-Pad layer.
-    if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c || inputs.lf5) {
+    if (inputs.rf8) {
         outputs.rightStickX = 128;
         outputs.rightStickY = 128;
     }
 
-    // Nunchuk overrides left stick.
-    if (inputs.nunchuk_connected) {
-        outputs.leftStickX = inputs.nunchuk_x;
-        outputs.leftStickY = inputs.nunchuk_y;
-    }
-
 }
+
 
 
 
