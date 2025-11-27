@@ -46,7 +46,7 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
         outputs.dpadRight = inputs.rt5;
     }
 
-    // Turn on extra button layer when holding empty button and quiet button
+    // Turn on extra button layer when holding empty button, quiet button, and MX
     if(inputs.rf8 && inputs.lf5 && inputs.lt2){
         outputs.capture = inputs.rf5;
         outputs.select = inputs.rf6;
@@ -286,14 +286,6 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     if(inputs.rf8){
         outputs.leftStickX = 128 - (outputs.leftStickX - 128);
         outputs.leftStickY = 128 - (outputs.leftStickY - 128);
-    }
-
-    if (inputs.lf5) {
-        outputs.triggerLAnalog = 140;
-    }
-
-    if (inputs.rf4) {
-        outputs.triggerRAnalog = 140;
     }
 
     // Shut off C-stick when using D-Pad layer.
