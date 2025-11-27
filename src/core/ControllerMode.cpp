@@ -9,7 +9,7 @@ void ControllerMode::UpdateOutputs(const InputState &inputs, OutputState &output
     // Create a copy of the input state here so remapping can be many-to-one (many physical buttons
     // to one activated button).
     InputState remapped_inputs = inputs;
-    // HandleRemap(inputs, remapped_inputs);
+    HandleRemap(inputs, remapped_inputs);
     HandleSocd(inputs);
     UpdateDigitalOutputs(inputs, outputs);
     UpdateAnalogOutputs(inputs, outputs);
