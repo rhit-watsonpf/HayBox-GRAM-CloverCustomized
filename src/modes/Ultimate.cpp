@@ -82,7 +82,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs
     );
 
-    bool shield_button_pressed = inputs.lf4 || inputs.lf5;
+    // bool shield_button_pressed = inputs.lf4 || inputs.lf5;
 
     // IF MX IS PRESSED
     if (inputs.lt2) {
@@ -303,6 +303,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
 }
+
 
 
 
