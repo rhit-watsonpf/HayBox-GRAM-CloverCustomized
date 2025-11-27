@@ -10,9 +10,9 @@ void ControllerMode::UpdateOutputs(const InputState &inputs, OutputState &output
     // to one activated button).
     InputState remapped_inputs = inputs;
     HandleRemap(inputs, remapped_inputs);
-    HandleSocd(inputs);
-    UpdateDigitalOutputs(inputs, outputs);
-    UpdateAnalogOutputs(inputs, outputs);
+    HandleSocd(remapped_inputs);
+    UpdateDigitalOutputs(remapped_inputs, outputs);
+    UpdateAnalogOutputs(remapped_inputs, outputs);
 }
 
 void ControllerMode::ResetDirections() {
