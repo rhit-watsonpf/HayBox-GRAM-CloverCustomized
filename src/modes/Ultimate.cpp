@@ -113,7 +113,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         // }
 
         /* Up B angles */
-        if (directions.diagonal && !shield_button_pressed) {
+        if (directions.diagonal) {
             // MX + q1/2/3/4 = 33.44 degrees | 53 35
             outputs.leftStickX = 128 + (directions.x * 53);
             outputs.leftStickY = 128 + (directions.y * 35);
@@ -303,6 +303,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
 }
+
 
 
 
