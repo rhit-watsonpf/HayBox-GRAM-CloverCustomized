@@ -33,7 +33,7 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.x = inputs.rf3;
     outputs.y = inputs.rt1;
     // outputs.buttonL = inputs.rf8;
-    outputs.buttonR = inputs.rf3 || inputs.rf8;
+    outputs.buttonR = inputs.rf7;
     outputs.triggerLDigital = inputs.rf4;
     outputs.triggerRDigital = inputs.rf5;
     outputs.start = inputs.mb1;
@@ -303,6 +303,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
 }
+
 
 
 
