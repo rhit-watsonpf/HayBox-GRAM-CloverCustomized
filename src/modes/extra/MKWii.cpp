@@ -10,7 +10,7 @@ void MKWii::UpdateDigitalOutputs(const InputState &inputs, OutputState &outputs)
     outputs.a = inputs.rf1;
     outputs.b = inputs.rf2;
     outputs.triggerLDigital = inputs.rf3;
-    outputs.buttonR = inputs.rf4;
+    outputs.buttonR = inputs.lf4; // changed rf4 to lf4
     outputs.dpadUp = inputs.rt1;
     outputs.start = inputs.mb1;
 }

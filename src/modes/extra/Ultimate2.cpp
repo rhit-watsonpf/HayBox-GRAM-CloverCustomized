@@ -13,7 +13,7 @@ void Ultimate2::UpdateDigitalOutputs(const InputState &inputs, OutputState &outp
     outputs.x = inputs.rf2;
     outputs.y = inputs.rf6;
     outputs.buttonR = inputs.rf3;
-    outputs.triggerLDigital = inputs.rf4;
+    outputs.triggerLDigital = inputs.lf4; // changed rf4 to lf4
     outputs.triggerRDigital = inputs.rf5;
     outputs.start = inputs.mb1;
 

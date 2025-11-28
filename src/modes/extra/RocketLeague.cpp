@@ -10,7 +10,7 @@ void RocketLeague::UpdateDigitalOutputs(const InputState &inputs, OutputState &o
     outputs.a = inputs.rt1;
     outputs.b = inputs.rf1;
     outputs.x = inputs.rf8;
-    outputs.y = inputs.rf4;
+    outputs.y = inputs.lf4; // changed rf4 to lf4
     outputs.buttonL = inputs.lf4;
     outputs.buttonR = inputs.rf7;
     outputs.triggerLDigital = inputs.rf3;

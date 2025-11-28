@@ -20,7 +20,7 @@ void FgcMode::UpdateDigitalOutputs(const InputState &inputs, OutputState &output
     outputs.a = inputs.rf1;
     outputs.b = inputs.rf2;
     outputs.triggerRDigital = inputs.rf3;
-    outputs.triggerLDigital = inputs.rf4;
+    outputs.triggerLDigital = inputs.lf4; // Changed rf4 to lf4
 
     // Right hand top row
     outputs.x = inputs.rf5;
