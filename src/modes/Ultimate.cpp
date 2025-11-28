@@ -28,7 +28,7 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     // lf3 = ring left
     // lf4 = pinkie left
     // lf5 = top middle left
-    outputs.a = inputs.rf1;
+    outputs.a = inputs.rf1 || inputs.lt2;
     outputs.b = inputs.rf2 || inputs.rf6;
     outputs.x = inputs.rf3;
     outputs.y = inputs.rt1;
@@ -179,7 +179,8 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         }
     }
 
-    if (inputs.lt1) { // Change this to lt1
+    // if MY is pressed
+    if (inputs.lt1) {
         // MY + Horizontal (even if shield is held) = 41
         if (directions.horizontal) {
             outputs.leftStickX = 128 + (directions.x * 41);
