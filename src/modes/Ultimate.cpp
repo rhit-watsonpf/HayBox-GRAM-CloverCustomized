@@ -28,11 +28,10 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     // lf3 = ring left
     // lf4 = pinkie left
     // lf5 = top middle left
-    outputs.a = inputs.rf1 || inputs.lt2;
+    outputs.a = inputs.rf1;
     outputs.b = inputs.rf2 || inputs.rf6;
     outputs.x = inputs.rf3;
-    outputs.y = inputs.rt1;
-    // outputs.buttonL = inputs.rf8;
+    outputs.y = inputs.rf8; // Changed this to rf8 from rt1 for O-deadzone testing
     outputs.buttonR = inputs.rf7;
     outputs.triggerLDigital = inputs.rf4;
     outputs.triggerRDigital = inputs.rf5;
@@ -268,6 +267,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             // }
 
             // MY Pivot Uptilt/Dtilt
+            // Is 34 in the deadzone?
             if (inputs.rt1) {
                 outputs.leftStickX = 128 + (directions.x * 34);
                 outputs.leftStickY = 128 + (directions.y * 38);
