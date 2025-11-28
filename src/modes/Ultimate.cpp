@@ -45,6 +45,13 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
         outputs.dpadRight = inputs.rt5;
     }
 
+    // For reseting training mode in ultimate
+    if (inputs.lf5 && inputs.lt1 && inputs.rf8 && inputs.rf7) {
+        outputs.buttonL = true;
+        outputs.buttonR = true;
+        outputs.a = true;
+    }
+
     // Turn on extra button layer when holding empty button, quiet button, and MX
     if(inputs.rf8 && inputs.lf5 && inputs.lt2){
         outputs.capture = inputs.rf5;
@@ -173,7 +180,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             // Angled Ftilts
             if (inputs.rt1) {
                 outputs.leftStickX = 128 + (directions.x * 36);
-                outputs.leftStickY = 128 + (directions.y * 26);
+                outputs.leftStickY = 128 + (directions.y * 30);
             }
         }
     }
@@ -270,7 +277,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             // Is 34 in the deadzone?
             if (inputs.rt1) {
                 outputs.leftStickX = 128 + (directions.x * 34);
-                outputs.leftStickY = 128 + (directions.y * 38);
+                outputs.leftStickY = 128 + (directions.y * 42);
             }
         }
     }
