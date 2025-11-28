@@ -73,7 +73,7 @@ void MultiVersus::UpdateAnalogOutputs(const InputState &inputs, OutputState &out
         inputs.lf3, // Left
         inputs.lf1, // Right
         inputs.lf2, // Down
-        inputs.lf4, // Up // changed rf4 to lf4
+        inputs.rf4, // Up
         inputs.rt3, // C-Left
         inputs.rt5, // C-Right
         inputs.rt2, // C-Down

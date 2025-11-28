@@ -31,9 +31,9 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.a = inputs.rf1;
     outputs.b = inputs.rf2 || inputs.rf6;
     outputs.x = inputs.rf3;
-    outputs.y = inputs.rf8; // Changed this to rf8 from rt1 for O-deadzone testing
+    outputs.y = inputs.rt1;
     outputs.buttonR = inputs.rf7;
-    // outputs.triggerLDigital = inputs.rf4;, removed this
+    outputs.triggerLDigital = inputs.rf4;
     outputs.triggerRDigital = inputs.rf5;
     outputs.start = inputs.mb1;
 
@@ -81,8 +81,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs
     );
 
-    // bool shield_button_pressed = inputs.rf4 || inputs.rf5; Removed this
-    bool shield_button_pressed = inputs.rf5;
+    bool shield_button_pressed = inputs.rf4 || inputs.rf5;
 
     // IF MX IS PRESSED
     if (inputs.lt2) {

@@ -21,19 +21,19 @@ void DarkSouls::UpdateDigitalOutputs(const InputState &inputs, OutputState &outp
         outputs.a = inputs.rt1;
         outputs.b = inputs.rf1;
         outputs.buttonR = inputs.rf3;
-        outputs.buttonL = inputs.lf4; // changed rf4 to lf4
+        outputs.buttonL = inputs.rf4;
         outputs.start = inputs.mb1 | inputs.nunchuk_z;
     } else if (layerX) {
         outputs.rightStickClick = inputs.rt1;
         outputs.triggerRDigital = inputs.rf3;
-        outputs.triggerLDigital = inputs.lf4; // changed rf4 to lf4
+        outputs.triggerLDigital = inputs.rf4;
         outputs.select = inputs.mb1;
     } else if (layerC) {
         outputs.a = inputs.rt1;
         outputs.dpadLeft = inputs.rf1;
         outputs.dpadDown = inputs.rf2;
         outputs.dpadUp = inputs.rf3;
-        outputs.dpadRight = inputs.lf4; // changed rf4 to lf4
+        outputs.dpadRight = inputs.rf4;
         outputs.select = inputs.nunchuk_z;
     }
 }

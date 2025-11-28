@@ -13,7 +13,7 @@ void HollowKnight::UpdateDigitalOutputs(const InputState &inputs, OutputState &o
     outputs.y = inputs.lt2; // Quick Cast
     outputs.triggerLDigital = inputs.rf5; // Focus / Cast
     outputs.triggerRDigital = inputs.rf3; // C-Dash
-    outputs.buttonR = inputs.lf4; // Dream Nail // changed rf4 to lf4
+    outputs.buttonR = inputs.rf4; // Dream Nail
 
     outputs.buttonL = inputs.rf7; // Map
     outputs.select = inputs.rf8; // Inventory

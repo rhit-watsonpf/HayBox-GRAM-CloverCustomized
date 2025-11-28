@@ -20,7 +20,7 @@ void SaltAndSanctuary::UpdateDigitalOutputs(const InputState &inputs, OutputStat
 
     outputs.triggerRDigital = inputs.rf8; // Use torch
 
-    outputs.dpadLeft = inputs.lf4; // Switch loadout // changed rf4 to lf4
+    outputs.dpadLeft = inputs.rf4; // Switch loadout
 
     outputs.start = inputs.mb1; // Inventory
 }
