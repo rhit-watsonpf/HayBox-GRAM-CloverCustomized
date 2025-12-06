@@ -112,12 +112,6 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                 outputs.leftStickY = 128 + (directions.y * 51);
             }
         }
-        // if (directions.diagonal && shield_button_pressed) {
-        //     // MX + L, R, LS, and MS + q1/2/3/4 = 6375 3750 = 51 30
-        //     outputs.leftStickX = 128 + (directions.x * 51);
-        //     outputs.leftStickY = 128 + (directions.y * 30);
-        // }
-
         /* Up B angles */
         if (directions.diagonal) {
             // MX + q1/2/3/4 = 33.44 degrees | 53 35
@@ -143,40 +137,6 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                 outputs.leftStickX = 128 + (directions.x * 53);
                 outputs.leftStickY = 128 + (directions.y * 28);
             }
-
-            /* Extended Up B Angles */
-            // if (inputs.rf1) {
-            //     // (33.29) = 67 44
-            //     outputs.leftStickX = 128 + (directions.x * 67);
-            //     outputs.leftStickY = 128 + (directions.y * 44);
-            //     // (39.38) = 67 55
-            //     if (inputs.rt2) {
-            //         outputs.leftStickX = 128 + (directions.x * 67);
-            //         outputs.leftStickY = 128 + (directions.y * 55);
-            //     }
-            //     // (36.18) = 67 49
-            //     if (inputs.rt3) {
-            //         outputs.leftStickX = 128 + (directions.x * 67);
-            //         outputs.leftStickY = 128 + (directions.y * 49);
-            //     }
-            //     // (30.2) = 67 39
-            //     if (inputs.rt4) {
-            //         outputs.leftStickX = 128 + (directions.x * 67);
-            //         outputs.leftStickY = 128 + (directions.y * 39);
-            //     }
-            //     // (27.58) = 67 35
-            //     if (inputs.rt5) {
-            //         outputs.leftStickX = 128 + (directions.x * 67);
-            //         outputs.leftStickY = 128 + (directions.y * 35);
-            //     }
-            // }
-
-            // Angled fsmash/ftilt with C-Stick + MX
-            // if (directions.cx != 0) {
-            //     outputs.rightStickX = 128 + (directions.cx * 127);
-            //     outputs.rightStickY = 128 + (directions.y * 59);
-            // }
-
             // Angled Ftilts
             if (inputs.rt1) {
                 outputs.leftStickX = 128 + (directions.x * 36);
@@ -204,22 +164,6 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                 outputs.leftStickY = 128 + (directions.y * 36);
             }
         }
-        // if (directions.diagonal) {
-        //     // MY + q1/2/3/4 = 35 59
-        //     outputs.leftStickX = 128 + (directions.x * 35);
-        //     outputs.leftStickY = 128 + (directions.y * 53);
-        //     if (shield_button_pressed) {
-        //         // MY + L, R, LS, and MS + q1/2 = 38 70
-        //         outputs.leftStickX = 128 + (directions.x * 38);
-        //         outputs.leftStickY = 128 + (directions.y * 70);
-        //         // MY + L, R, LS, and MS + q3/4 = 40 68
-        //         if (directions.x == -1) {
-        //             outputs.leftStickX = 128 + (directions.x * 40);
-        //             outputs.leftStickY = 128 + (directions.y * 68);
-        //         }
-        //     }
-        // }
-
         /* Up B angles */
         if (directions.diagonal) {
             // (56.56) = 35 53
@@ -245,34 +189,6 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                 outputs.leftStickX = 128 + (directions.x * 28);
                 outputs.leftStickY = 128 + (directions.y * 53);
             }
-
-            /* Extended Up B Angles */
-            // if (inputs.rf1) {
-            //     // (56.71) = 44 67
-            //     outputs.leftStickX = 128 + (directions.x * 44);
-            //     outputs.leftStickY = 128 + (directions.y * 67);
-            //     // (50.62) = 55 67
-            //     if (inputs.rt2) {
-            //         outputs.leftStickX = 128 + (directions.x * 55);
-            //         outputs.leftStickY = 128 + (directions.y * 67);
-            //     }
-            //     // (53.82) = 49 67
-            //     if (inputs.rt3) {
-            //         outputs.leftStickX = 128 + (directions.x * 49);
-            //         outputs.leftStickY = 128 + (directions.y * 67);
-            //     }
-            //     // (59.8) = 39 67
-            //     if (inputs.rt4) {
-            //         outputs.leftStickX = 128 + (directions.x * 39);
-            //         outputs.leftStickY = 128 + (directions.y * 67);
-            //     }
-            //     // (62.42) = 35 67
-            //     if (inputs.rt5) {
-            //         outputs.leftStickX = 128 + (directions.x * 35);
-            //         outputs.leftStickY = 128 + (directions.y * 67);
-            //     }
-            // }
-
             // MY Pivot Uptilt/Dtilt
             // Is 34 in the deadzone?
             if (inputs.rt1) {
@@ -281,14 +197,6 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             }
         }
     }
-
-    // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
-    // angled fsmash).
-    // if (directions.cx != 0 && directions.cy != 0) {
-    //     // 5250 8500 = 42 68
-    //     outputs.rightStickX = 128 + (directions.cx * 42);
-    //     outputs.rightStickY = 128 + (directions.cy * 68);
-    // }
 
     // Make it so that if rf8 is pressed it inverts all the outputs
     if(inputs.rf8){
@@ -303,6 +211,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
 }
+
 
 
 
