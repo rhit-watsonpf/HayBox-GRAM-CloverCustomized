@@ -56,13 +56,14 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     if(inputs.rf8 && inputs.lf5 && inputs.lt2){
         outputs.capture = inputs.rf5;
         outputs.select = inputs.rf6;
+        outputs.b = false;
         outputs.home = inputs.rf7;
     }
 
     // Hidden Buttons for remapp.ing options
     // outputs.leftStickClick = inputs.lf6;
     // outputs.rightStickClick = inputs.lf7;
-    // outputs.capture = inputs.lf8;
+    outputs.capture = inputs.lf5;
     // outputs.dpadUp = inputs.lf9;
     // outputs.dpadDown = inputs.lf10;
     // outputs.dpadLeft = inputs.lf11;
@@ -211,6 +212,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
 }
+
 
 
 
