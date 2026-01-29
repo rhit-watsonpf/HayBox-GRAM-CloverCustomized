@@ -38,7 +38,7 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.start = inputs.mb1;
 
     // Turn on D-Pad layer by holding empty button, quiet button
-    if (inputs.rf8 && inputs.lf5) {
+    if (inputs.rf8 && inputs.lf5 & inputs.lt1) {
         outputs.dpadUp = inputs.rt4;
         outputs.dpadDown = inputs.rt2;
         outputs.dpadLeft = inputs.rt3;
@@ -211,6 +211,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
 }
+
 
 
 
