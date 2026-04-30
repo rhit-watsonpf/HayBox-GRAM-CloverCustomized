@@ -34,8 +34,8 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.x = inputs.rf3;
     outputs.y = inputs.rt1;
     outputs.buttonR = inputs.rf7;
-    outputs.triggerLDigital = inputs.rf4;
-    outputs.triggerRDigital = inputs.rf5;
+    outputs.triggerRDigital = inputs.rf4;
+    outputs.triggerLDigital = inputs.rf5;
     outputs.start = inputs.mb1;
 
     // Turn on D-Pad layer by holding empty button
@@ -56,15 +56,15 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     // Turn on extra button layer when holding empty button, quiet button, and mx
     if(inputs.rf8 && inputs.lf5 && inputs.lt2){
         outputs.capture = inputs.rf5;
-        outputs.triggerRDigital = false;
+        outputs.triggerLDigital = false;
         outputs.select = inputs.rf6;
         outputs.b = false;
         outputs.home = inputs.rf7;
         outputs.buttonR = false;
     }
 
-    if(inputs.rf8){
-        outputs.triggerRDigital = false;
+    if(inputs.rt1){
+        outputs.triggerLDigital = false;
         outputs.buttonL = inputs.rf5;
     }
 
@@ -220,11 +220,19 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
     if (inputs.rf4) {
-        outputs.triggerLAnalog = 128;
+        outputs.triggerRAnalog = 128;
     }
 
     if (inputs.rf5) {
-        outputs.triggerRAnalog = 128;
+        outputs.triggerLAnalog = 128;
+    }
+
+    if (inputs.rt1) {
+        outputs.triggerLAnalog = 0;
+    }
+
+    if (inputs.rf8 && inputs.lf5 && inputs.lt2){
+        outputs.triggerLAnalog = 0;
     }
 
 }
