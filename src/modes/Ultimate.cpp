@@ -38,8 +38,8 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.triggerRDigital = inputs.rf5;
     outputs.start = inputs.mb1;
 
-    // Turn on D-Pad layer by holding empty button, quiet button
-    if (inputs.rf8 && inputs.lf5 & inputs.lt1) {
+    // Turn on D-Pad layer by holding empty button
+    if (inputs.lf5) {
         outputs.dpadUp = inputs.rt4;
         outputs.dpadDown = inputs.rt2;
         outputs.dpadLeft = inputs.rt3;
@@ -53,12 +53,19 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
         outputs.a = true;
     }
 
-    // Turn on extra button layer when holding empty button, quiet button, and MX
+    // Turn on extra button layer when holding empty button, quiet button, and mx
     if(inputs.rf8 && inputs.lf5 && inputs.lt2){
         outputs.capture = inputs.rf5;
+        outputs.triggerRDigital = false;
         outputs.select = inputs.rf6;
         outputs.b = false;
         outputs.home = inputs.rf7;
+        outputs.buttonR = false;
+    }
+
+    if(inputs.rf8){
+        outputs.triggerRDigital = false;
+        outputs.buttonL = inputs.rf5;
     }
 
     // Hidden Buttons for remapp.ing options
