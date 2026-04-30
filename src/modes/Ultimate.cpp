@@ -54,30 +54,29 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     }
 
     // Turn on extra button layer when holding empty button, quiet button, and mx
-    if(inputs.rf8 && inputs.lf5 && inputs.lt2){
-        outputs.capture = inputs.rf5;
-        outputs.triggerLDigital = false;
-        outputs.select = inputs.rf6;
-        outputs.b = false;
-        outputs.home = inputs.rf7;
-        outputs.buttonR = false;
-    }
+   // if(inputs.rf8 && inputs.lf5 && inputs.lt2){
+ //       outputs.capture = inputs.rf5;
+  //      outputs.triggerLDigital = false;
+ //       outputs.select = inputs.rf6;
+   //     outputs.b = false;
+  //      outputs.home = inputs.rf7;
+  //      outputs.buttonR = false;
+ //   }
 
     if(inputs.rt1){
         outputs.triggerLDigital = false;
         outputs.buttonL = inputs.rf5;
     }
 
-    // Hidden Buttons for remapp.ing options
-    // outputs.leftStickClick = inputs.lf6;
-    // outputs.rightStickClick = inputs.lf7;
-    // outputs.capture = inputs.lf5;
-    // outputs.dpadUp = inputs.lf9;
-    // outputs.dpadDown = inputs.lf10;
-    // outputs.dpadLeft = inputs.lf11;
-    // outputs.dpadRight = inputs.lf12;
-    // outputs.select = inputs.mb2;
-    // outputs.home = inputs.mb3;
+    //if(inputs.rf8 && inputs.lf5 && inputs.lt2 && inputs.rf5) {
+   //     outputs.capture = true;
+ //   }
+    if(inputs.rf8){
+        outputs.capture = true;
+    }
+    if(inputs.lf5){
+        outputs.capture = false;
+    }
 }
 
 void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs) {
