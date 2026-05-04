@@ -37,6 +37,7 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.triggerRDigital = inputs.rt4;
     outputs.triggerLDigital = inputs.rt1;
     outputs.start = inputs.mb1;
+    
 
  //    // Turn on D-Pad layer by holding empty button
  //    if (inputs.lf5) {
@@ -95,235 +96,220 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         ANALOG_STICK_MAX,
         outputs
     );
-
-    // bool shield_button_pressed = inputs.rf4 || inputs.rf5;
-
-    // // IF MX IS PRESSED
-    // if (inputs.lt2) {
-    //     // MX + Horizontal = 6625 = 53
-    //     if (directions.horizontal) {
-    //         outputs.leftStickX = 128 + (directions.x * 53);
-    //         // Horizontal Shield tilt = 51
-    //         if (shield_button_pressed) { // TEST WHAT THIS DOES WITHOUT THIS
-    //             outputs.leftStickX = 128 + (directions.x * 51);
-    //         }
-    //         // Horizontal Tilts = 36
-    //         if (inputs.rt1) { // TEST WHAT THIS DOES WITHOUT IT
-    //             outputs.leftStickX = 128 + (directions.x * 36);
-    //         }
-    //     }
-    //     // MX + Vertical = 44
-    //     if (directions.vertical) { 
-    //         outputs.leftStickY = 128 + (directions.y * 44);
-    //         // Vertical Shield Tilt = 51
-    //         if (shield_button_pressed) {
-    //             outputs.leftStickY = 128 + (directions.y * 51);
-    //         }
-    //     }
-    //     /* Up B angles */
-    //     if (directions.diagonal) {
-    //         // MX + q1/2/3/4 = 33.44 degrees | 53 35
-    //         outputs.leftStickX = 128 + (directions.x * 53);
-    //         outputs.leftStickY = 128 + (directions.y * 35);
-    //         // (39.05) = 53 43
-    //         if (inputs.rt2) {
-    //             outputs.leftStickX = 128 + (directions.x * 53);
-    //             outputs.leftStickY = 128 + (directions.y * 43);
-    //         }
-    //         // (36.35) = 53 39
-    //         if (inputs.rt3) {
-    //             outputs.leftStickX = 128 + (directions.x * 53);
-    //             outputs.leftStickY = 128 + (directions.y * 39);
-    //         }
-    //         // (30.32) = 56 41
-    //         if (inputs.rt4) {
-    //             outputs.leftStickX = 128 + (directions.x * 53);
-    //             outputs.leftStickY = 128 + (directions.y * 31);
-    //         }
-    //         // (27.85) = 49 42
-    //         if (inputs.rt5) {
-    //             outputs.leftStickX = 128 + (directions.x * 53);
-    //             outputs.leftStickY = 128 + (directions.y * 28);
-    //         }
-    //         // Angled Ftilts
-    //         if (inputs.rt1) {
-    //             outputs.leftStickX = 128 + (directions.x * 36);
-    //             outputs.leftStickY = 128 + (directions.y * 30);
-    //         }
-    //     }
-    // }
-
-    // // if MY is pressed
-    // if (inputs.lt1) {
-    //     // MY + Horizontal (even if shield is held) = 41
-    //     if (directions.horizontal) {
-    //         outputs.leftStickX = 128 + (directions.x * 41);
-    //         // MY Horizontal Tilts
-    //         if (inputs.rt1) {
-    //             outputs.leftStickX = 128 + (directions.x * 36);
-    //         }
-    //     }
-    //     // MY + Vertical (even if shield is held) = 53
-    //     if (directions.vertical) {
-    //         outputs.leftStickY = 128 + (directions.y * 53);
-    //         // MY Vertical Tilts
-    //         // WHY????????
-    //         if (inputs.rt1) {
-    //             outputs.leftStickY = 128 + (directions.y * 36);
-    //         }
-    //     }
-    //     /* Up B angles */
-    //     if (directions.diagonal) {
-    //         // (56.56) = 35 53
-    //         outputs.leftStickX = 128 + (directions.x * 35);
-    //         outputs.leftStickY = 128 + (directions.y * 53);
-    //         // (50.95) = 43 53
-    //         if (inputs.rt2) {
-    //             outputs.leftStickX = 128 + (directions.x * 43);
-    //             outputs.leftStickY = 128 + (directions.y * 53);
-    //         }
-    //         // (53.65) = 39 53
-    //         if (inputs.rt3) {
-    //             outputs.leftStickX = 128 + (directions.x * 49);
-    //             outputs.leftStickY = 128 + (directions.y * 53);
-    //         }
-    //         // (59.68) = 31 53
-    //         if (inputs.rt4) {
-    //             outputs.leftStickX = 128 + (directions.x * 31);
-    //             outputs.leftStickY = 128 + (directions.y * 53);
-    //         }
-    //         // (62.15) = 28 53
-    //         if (inputs.rt5) {
-    //             outputs.leftStickX = 128 + (directions.x * 28);
-    //             outputs.leftStickY = 128 + (directions.y * 53);
-    //         }
-    //         // MY Pivot Uptilt/Dtilt
-    //         // Is 34 in the deadzone?
-    //         if (inputs.rt1) {
-    //             outputs.leftStickX = 128 + (directions.x * 34);
-    //             outputs.leftStickY = 128 + (directions.y * 42);
-    //         }
-    //     }
-    // }
-
-    // // Make it so that if rf8 is pressed it inverts all the outputs
-    // if(inputs.rf8){
-    //     outputs.leftStickX = 128 - (outputs.leftStickX - 128);
-    //     outputs.leftStickY = 128 - (outputs.leftStickY - 128);
-    // }
-
-    // // Shut off C-stick when using D-Pad layer.
-    // if (inputs.rf8) {
-    //     outputs.rightStickX = 128;
-    //     outputs.rightStickY = 128;
-    // }
-
-    // if (inputs.rf4) {
-    //     outputs.triggerRAnalog = 128;
-    // }
-
-    // if (inputs.rf5) {
-    //     outputs.triggerLAnalog = 128;
-    // }
-
-    // if (inputs.rt1) {
-    //     outputs.triggerLAnalog = 0;
-    // }
-
-    // if (inputs.rf8 && inputs.lf5 && inputs.lt2){
-    //     outputs.triggerLAnalog = 0;
-    // }
-
+    int temp = 0;
     if(inputs.lt2){
         if(directions.horizontal){
             if(inputs.lf4){
-                outputs.leftStickX = 128 + (directions.x * 1);
+                temp = temp + 1;
             }
             if(inputs.lf3){
-                outputs.leftStickX = 128 + (directions.x * 2);
+                temp = temp + 2;
             }
             if(inputs.lf5){
-                outputs.leftStickX = 128 + (directions.x * 4);
+                temp = temp + 4;
             }
             if(inputs.rf5){
-                outputs.leftStickX = 128 + (directions.x * 8);
+                temp = temp + 8;
             }
             if(inputs.rf6){
-                outputs.leftStickX = 128 + (directions.x * 16);
+                temp = temp + 16;
             }
             if(inputs.rf7){
-                outputs.leftStickX = 128 + (directions.x * 32);
+                temp = temp + 32;
             }
             if(inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 64);
+                temp = temp + 64;
             }
             if(inputs.rt3){
-                outputs.leftStickX = 128 + (directions.x * 128);
+                temp = temp + 128;
             }
-            if(inputs.rt4){
-                outputs.leftStickX = 128 + (directions.x * 256);
-            }
-            if(inputs.rt5){
-                outputs.leftStickX = 128 + (directions.x * 512);
-            }
+            outputs.leftStickX = 128 + (directions.x * temp);
+            
         }
         if(directions.diagonal){
-            if(inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 7);
-                outputs.rightStickY = 128 + (directions.y * 69);
+            if (inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				// Angle is 2.812
+				outputs.leftStickX = 128 + (directions.x * 128);
+				outputs.leftStickY = 128 + (directions.y * 7);
+			}
+			if (inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				// Angle is 5.625
+				outputs.leftStickX = 128 + (directions.x * 128);
+				outputs.leftStickY = 128 + (directions.y * 13);
+			}
+			if (inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				// Angle is 8.438
+				outputs.leftStickX = 128 + (directions.x * 127);
+				outputs.leftStickY = 128 + (directions.y * 19);
+			}
+			if (inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				// Angle is 11.25
+				outputs.leftStickX = 128 + (directions.x * 126);
+				outputs.leftStickY = 128 + (directions.y * 25);
+			}
+			if (inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				// Angle is 14.06
+				outputs.leftStickX = 128 + (directions.x * 125);
+				outputs.leftStickY = 128 + (directions.y * 32);
+			}
+			if (inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				// Angle is 16.88
+				outputs.leftStickX = 128 + (directions.x * 123);
+				outputs.leftStickY = 128 + (directions.y * 38);
+			}
+			if (inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				// Angle is 19.69
+				outputs.leftStickX = 128 + (directions.x * 121);
+				outputs.leftStickY = 128 + (directions.y * 44);
+			}
+			if (inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				// Angle is 22.50
+				outputs.leftStickX = 128 + (directions.x * 119);
+				outputs.leftStickY = 128 + (directions.y * 49);
+			}
+			if (inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				// Angle is 25.31
+				outputs.leftStickX = 128 + (directions.x * 116);
+				outputs.leftStickY = 128 + (directions.y * 55);
+			}
+			if (inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				// Angle is 28.12
+				outputs.leftStickX = 128 + (directions.x * 113);
+				outputs.leftStickY = 128 + (directions.y * 61);
+			}
+			if (inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				// Angle is 30.94
+				outputs.leftStickX = 128 + (directions.x * 110);
+				outputs.leftStickY = 128 + (directions.y * 66);
+			}
+			if (inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				// Angle is 33.75
+				outputs.leftStickX = 128 + (directions.x * 107);
+				outputs.leftStickY = 128 + (directions.y * 72);
+			}
+			if (inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				// Angle is 36.56
+				outputs.leftStickX = 128 + (directions.x * 103);
+				outputs.leftStickY = 128 + (directions.y * 77);
+			}
+			if (inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				// Angle is 39.38
+				outputs.leftStickX = 128 + (directions.x * 99);
+				outputs.leftStickY = 128 + (directions.y * 82);
+			}
+			if (inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				// Angle is 42.19
+				outputs.leftStickX = 128 + (directions.x * 95);
+				outputs.leftStickY = 128 + (directions.y * 86);
+			}
+			if (!inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				// Angle is 45.
+				outputs.leftStickX = 128 + (directions.x * 91);
+				outputs.leftStickY = 128 + (directions.y * 91);
+			}
+			if (!inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				// Angle is 47.81
+				outputs.leftStickX = 128 + (directions.x * 86);
+				outputs.leftStickY = 128 + (directions.y * 95);
+			}
+			if (!inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				// Angle is 50.62
+				outputs.leftStickX = 128 + (directions.x * 82);
+				outputs.leftStickY = 128 + (directions.y * 99);
+			}
+			if (!inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				// Angle is 53.44
+				outputs.leftStickX = 128 + (directions.x * 77);
+				outputs.leftStickY = 128 + (directions.y * 103);
+			}
+			if (!inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				// Angle is 56.25
+				outputs.leftStickX = 128 + (directions.x * 72);
+				outputs.leftStickY = 128 + (directions.y * 107);
+			}
+			if (!inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				// Angle is 59.06
+				outputs.leftStickX = 128 + (directions.x * 66);
+				outputs.leftStickY = 128 + (directions.y * 110);
+			}
+			if (!inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				// Angle is 61.88
+				outputs.leftStickX = 128 + (directions.x * 61);
+				outputs.leftStickY = 128 + (directions.y * 113);
+			}
+			if (!inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				// Angle is 64.69
+				outputs.leftStickX = 128 + (directions.x * 55);
+				outputs.leftStickY = 128 + (directions.y * 116);
+			}
+			if (!inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				// Angle is 67.50
+				outputs.leftStickX = 128 + (directions.x * 49);
+				outputs.leftStickY = 128 + (directions.y * 119);
+			}
+			if (!inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				// Angle is 70.31
+				outputs.leftStickX = 128 + (directions.x * 44);
+				outputs.leftStickY = 128 + (directions.y * 121);
+			}
+			if (!inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				// Angle is 73.12
+				outputs.leftStickX = 128 + (directions.x * 38);
+				outputs.leftStickY = 128 + (directions.y * 123);
+			}
+			if (!inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				// Angle is 75.94
+				outputs.leftStickX = 128 + (directions.x * 32);
+				outputs.leftStickY = 128 + (directions.y * 125);
+			}
+			if (!inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				// Angle is 78.75
+				outputs.leftStickX = 128 + (directions.x * 25);
+				outputs.leftStickY = 128 + (directions.y * 126);
+			}
+			if (!inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				// Angle is 81.56
+				outputs.leftStickX = 128 + (directions.x * 19);
+				outputs.leftStickY = 128 + (directions.y * 127);
+			}
+			if (!inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				// Angle is 84.38
+				outputs.leftStickX = 128 + (directions.x * 13);
+				outputs.leftStickY = 128 + (directions.y * 128);
+			}
+			if (!inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				// Angle is 87.19
+				outputs.leftStickX = 128 + (directions.x * 7);
+				outputs.leftStickY = 128 + (directions.y * 128);
+			}
+        }
+        if(directions.vertical){
+            if(inputs.lf4){
+                temp = temp + 1;
             }
-            if(inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 14);
-                outputs.rightStickY = 128 + (directions.y * 68);
+            if(inputs.lf3){
+                temp = temp + 2;
             }
-            if(inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 21);
-                outputs.rightStickY = 128 + (directions.y * 66);
+            if(inputs.lf5){
+                temp = temp + 4;
             }
-            if(inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 28);
-                outputs.rightStickY = 128 + (directions.y * 63);
+            if(inputs.rf5){
+                temp = temp + 8;
             }
-            if(inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 35);
-                outputs.rightStickY = 128 + (directions.y * 60);
+            if(inputs.rf6){
+                temp = temp + 16;
             }
-            if(inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 41);
-                outputs.rightStickY = 128 + (directions.y * 56);
+            if(inputs.rf7){
+                temp = temp + 32;
             }
-            if(inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 46);
-                outputs.rightStickY = 128 + (directions.y * 52);
+            if(inputs.rf8){
+                temp = temp + 64;
             }
-            if(inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 52);
-                outputs.rightStickY = 128 + (directions.y * 46);
+            if(inputs.rt3){
+                temp = temp + 128;
             }
-            if(!inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 56);
-                outputs.rightStickY = 128 + (directions.y * 41);
-            }
-            if(!inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 60);
-                outputs.rightStickY = 128 + (directions.y * 35);
-            }
-            if(!inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 63);
-                outputs.rightStickY = 128 + (directions.y * 28);
-            }
-            if(!inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 66);
-                outputs.rightStickY = 128 + (directions.y * 21);
-            }
-            if(!inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 68);
-                outputs.rightStickY = 128 + (directions.y * 14);
-            }
-            if(!inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 69);
-                outputs.rightStickY = 128 + (directions.y * 7);
-            }
+            outputs.leftStickY = 128 + (directions.y * temp);
+            
         }
     }
     
