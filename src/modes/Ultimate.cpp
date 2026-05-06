@@ -39,45 +39,6 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.start = inputs.mb1;
     
 
- //    // Turn on D-Pad layer by holding empty button
- //    if (inputs.lf5) {
- //        outputs.dpadUp = inputs.rt4;
- //        outputs.dpadDown = inputs.rt2;
- //        outputs.dpadLeft = inputs.rt3;
- //        outputs.dpadRight = inputs.rt5;
- //    }
-
- //    // For reseting training mode in ultimate
- //    if (inputs.lf5 && inputs.lt1 && inputs.rf8 && inputs.rf7) {
- //        outputs.buttonL = true;
- //        outputs.buttonR = true;
- //        outputs.a = true;
- //    }
-
- //    // Turn on extra button layer when holding empty button, quiet button, and mx
- //   // if(inputs.rf8 && inputs.lf5 && inputs.lt2){
- // //       outputs.capture = inputs.rf5;
- //  //      outputs.triggerLDigital = false;
- // //       outputs.select = inputs.rf6;
- //   //     outputs.b = false;
- //  //      outputs.home = inputs.rf7;
- //  //      outputs.buttonR = false;
- // //   }
-
- //    if(inputs.rt1){
- //        outputs.triggerLDigital = false;
- //        outputs.buttonL = inputs.rf5;
- //    }
-
- //    //if(inputs.rf8 && inputs.lf5 && inputs.lt2 && inputs.rf5) {
- //   //     outputs.capture = true;
- // //   }
- //    if(inputs.rf8){
- //        outputs.capture = true;
- //    }
- //    if(inputs.lf5){
- //        outputs.capture = false;
- //    }
 }
 
 void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs) {
@@ -99,313 +60,934 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     int temp = 0;
     if(inputs.lt2){
         if(directions.horizontal){
-            if(inputs.lf4){
-                temp = temp + 1;
-            }
-            if(inputs.lf3){
-                temp = temp + 2;
-            }
-            if(inputs.lf5){
-                temp = temp + 4;
-            }
-            if(inputs.rf5){
-                temp = temp + 8;
-            }
-            if(inputs.rf6){
-                temp = temp + 16;
-            }
-            if(inputs.rf7){
-                temp = temp + 32;
-            }
-            if(inputs.rf8){
-                temp = temp + 64;
-            }
-            if(inputs.rt3){
-                temp = temp + 128;
-            }
-            outputs.leftStickX = 128 + (directions.x * temp);
-            
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 1);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 2);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 3);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 4);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 5);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 6);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 7);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 8);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 9);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 10);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 11);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 12);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 13);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 14);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 15);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 16);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 17);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 18);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 19);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 20);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 21);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 22);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 23);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 24);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 25);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 26);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 27);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 28);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 29);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 30);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 31);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 32);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 33);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 34);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 35);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 36);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 37);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 38);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 39);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 40);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 41);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 42);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 43);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 44);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 45);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 46);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 47);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 48);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 49);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 50);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 51);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 52);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 53);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 54);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 55);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 56);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 57);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 58);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 59);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 60);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 61);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 62);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 63);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 64);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 65);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 66);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 67);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 68);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 69);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 70);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 71);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 72);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 73);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 74);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 75);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 76);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 77);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 78);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 79);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 80);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 81);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 82);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 83);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 84);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 85);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 86);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 87);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 88);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 89);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 90);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 91);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 92);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 93);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 94);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 95);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 96);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 97);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 98);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 99);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 100);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 101);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 102);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 103);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 104);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 105);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 106);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 107);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 108);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 109);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 110);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 111);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 112);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 113);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 114);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 115);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 116);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 117);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 118);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 119);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 120);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 121);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 122);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 123);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 124);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 125);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 126);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickX = 128 + (directions.x * 127);
+			};
+
         }
         if(directions.diagonal){
             if (inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
 				// Angle is 2.812
-				outputs.leftStickX = 128 + (directions.x * 128);
-				outputs.leftStickY = 128 + (directions.y * 7);
-			}
+				outputs.leftStickX = 128 + (directions.x * 127);
+				outputs.leftStickY = 128 + (directions.y * 6);
+			};
 			if (inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
 				// Angle is 5.625
-				outputs.leftStickX = 128 + (directions.x * 128);
-				outputs.leftStickY = 128 + (directions.y * 13);
-			}
+				outputs.leftStickX = 128 + (directions.x * 127);
+				outputs.leftStickY = 128 + (directions.y * 12);
+			};
 			if (inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
 				// Angle is 8.438
-				outputs.leftStickX = 128 + (directions.x * 127);
-				outputs.leftStickY = 128 + (directions.y * 19);
-			}
+				outputs.leftStickX = 128 + (directions.x * 126);
+				outputs.leftStickY = 128 + (directions.y * 18);
+			};
 			if (inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
 				// Angle is 11.25
-				outputs.leftStickX = 128 + (directions.x * 126);
-				outputs.leftStickY = 128 + (directions.y * 25);
-			}
+				outputs.leftStickX = 128 + (directions.x * 125);
+				outputs.leftStickY = 128 + (directions.y * 24);
+			};
 			if (inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
 				// Angle is 14.06
-				outputs.leftStickX = 128 + (directions.x * 125);
-				outputs.leftStickY = 128 + (directions.y * 32);
-			}
+				outputs.leftStickX = 128 + (directions.x * 124);
+				outputs.leftStickY = 128 + (directions.y * 31);
+			};
 			if (inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
 				// Angle is 16.88
-				outputs.leftStickX = 128 + (directions.x * 123);
-				outputs.leftStickY = 128 + (directions.y * 38);
-			}
+				outputs.leftStickX = 128 + (directions.x * 122);
+				outputs.leftStickY = 128 + (directions.y * 37);
+			};
 			if (inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
 				// Angle is 19.69
-				outputs.leftStickX = 128 + (directions.x * 121);
-				outputs.leftStickY = 128 + (directions.y * 44);
-			}
+				outputs.leftStickX = 128 + (directions.x * 120);
+				outputs.leftStickY = 128 + (directions.y * 43);
+			};
 			if (inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
 				// Angle is 22.50
-				outputs.leftStickX = 128 + (directions.x * 119);
-				outputs.leftStickY = 128 + (directions.y * 49);
-			}
+				outputs.leftStickX = 128 + (directions.x * 118);
+				outputs.leftStickY = 128 + (directions.y * 48);
+			};
 			if (inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
 				// Angle is 25.31
-				outputs.leftStickX = 128 + (directions.x * 116);
-				outputs.leftStickY = 128 + (directions.y * 55);
-			}
+				outputs.leftStickX = 128 + (directions.x * 115);
+				outputs.leftStickY = 128 + (directions.y * 54);
+			};
 			if (inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
 				// Angle is 28.12
-				outputs.leftStickX = 128 + (directions.x * 113);
-				outputs.leftStickY = 128 + (directions.y * 61);
-			}
+				outputs.leftStickX = 128 + (directions.x * 112);
+				outputs.leftStickY = 128 + (directions.y * 60);
+			};
 			if (inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
 				// Angle is 30.94
-				outputs.leftStickX = 128 + (directions.x * 110);
-				outputs.leftStickY = 128 + (directions.y * 66);
-			}
+				outputs.leftStickX = 128 + (directions.x * 109);
+				outputs.leftStickY = 128 + (directions.y * 65);
+			};
 			if (inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
 				// Angle is 33.75
-				outputs.leftStickX = 128 + (directions.x * 107);
-				outputs.leftStickY = 128 + (directions.y * 72);
-			}
+				outputs.leftStickX = 128 + (directions.x * 106);
+				outputs.leftStickY = 128 + (directions.y * 71);
+			};
 			if (inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
 				// Angle is 36.56
-				outputs.leftStickX = 128 + (directions.x * 103);
-				outputs.leftStickY = 128 + (directions.y * 77);
-			}
+				outputs.leftStickX = 128 + (directions.x * 102);
+				outputs.leftStickY = 128 + (directions.y * 76);
+			};
 			if (inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
 				// Angle is 39.38
-				outputs.leftStickX = 128 + (directions.x * 99);
-				outputs.leftStickY = 128 + (directions.y * 82);
-			}
+				outputs.leftStickX = 128 + (directions.x * 98);
+				outputs.leftStickY = 128 + (directions.y * 81);
+			};
 			if (inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
 				// Angle is 42.19
-				outputs.leftStickX = 128 + (directions.x * 95);
-				outputs.leftStickY = 128 + (directions.y * 86);
-			}
+				outputs.leftStickX = 128 + (directions.x * 94);
+				outputs.leftStickY = 128 + (directions.y * 85);
+			};
 			if (!inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
 				// Angle is 45.
-				outputs.leftStickX = 128 + (directions.x * 91);
-				outputs.leftStickY = 128 + (directions.y * 91);
-			}
+				outputs.leftStickX = 128 + (directions.x * 90);
+				outputs.leftStickY = 128 + (directions.y * 90);
+			};
 			if (!inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
 				// Angle is 47.81
-				outputs.leftStickX = 128 + (directions.x * 86);
-				outputs.leftStickY = 128 + (directions.y * 95);
-			}
+				outputs.leftStickX = 128 + (directions.x * 85);
+				outputs.leftStickY = 128 + (directions.y * 94);
+			};
 			if (!inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
 				// Angle is 50.62
-				outputs.leftStickX = 128 + (directions.x * 82);
-				outputs.leftStickY = 128 + (directions.y * 99);
-			}
+				outputs.leftStickX = 128 + (directions.x * 81);
+				outputs.leftStickY = 128 + (directions.y * 98);
+			};
 			if (!inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
 				// Angle is 53.44
-				outputs.leftStickX = 128 + (directions.x * 77);
-				outputs.leftStickY = 128 + (directions.y * 103);
-			}
+				outputs.leftStickX = 128 + (directions.x * 76);
+				outputs.leftStickY = 128 + (directions.y * 102);
+			};
 			if (!inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
 				// Angle is 56.25
-				outputs.leftStickX = 128 + (directions.x * 72);
-				outputs.leftStickY = 128 + (directions.y * 107);
-			}
+				outputs.leftStickX = 128 + (directions.x * 71);
+				outputs.leftStickY = 128 + (directions.y * 106);
+			};
 			if (!inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
 				// Angle is 59.06
-				outputs.leftStickX = 128 + (directions.x * 66);
-				outputs.leftStickY = 128 + (directions.y * 110);
-			}
+				outputs.leftStickX = 128 + (directions.x * 65);
+				outputs.leftStickY = 128 + (directions.y * 109);
+			};
 			if (!inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
 				// Angle is 61.88
-				outputs.leftStickX = 128 + (directions.x * 61);
-				outputs.leftStickY = 128 + (directions.y * 113);
-			}
+				outputs.leftStickX = 128 + (directions.x * 60);
+				outputs.leftStickY = 128 + (directions.y * 112);
+			};
 			if (!inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
 				// Angle is 64.69
-				outputs.leftStickX = 128 + (directions.x * 55);
-				outputs.leftStickY = 128 + (directions.y * 116);
-			}
+				outputs.leftStickX = 128 + (directions.x * 54);
+				outputs.leftStickY = 128 + (directions.y * 115);
+			};
 			if (!inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
 				// Angle is 67.50
-				outputs.leftStickX = 128 + (directions.x * 49);
-				outputs.leftStickY = 128 + (directions.y * 119);
-			}
+				outputs.leftStickX = 128 + (directions.x * 48);
+				outputs.leftStickY = 128 + (directions.y * 118);
+			};
 			if (!inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
 				// Angle is 70.31
-				outputs.leftStickX = 128 + (directions.x * 44);
-				outputs.leftStickY = 128 + (directions.y * 121);
-			}
+				outputs.leftStickX = 128 + (directions.x * 43);
+				outputs.leftStickY = 128 + (directions.y * 120);
+			};
 			if (!inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
 				// Angle is 73.12
-				outputs.leftStickX = 128 + (directions.x * 38);
-				outputs.leftStickY = 128 + (directions.y * 123);
-			}
+				outputs.leftStickX = 128 + (directions.x * 37);
+				outputs.leftStickY = 128 + (directions.y * 122);
+			};
 			if (!inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
 				// Angle is 75.94
-				outputs.leftStickX = 128 + (directions.x * 32);
-				outputs.leftStickY = 128 + (directions.y * 125);
-			}
+				outputs.leftStickX = 128 + (directions.x * 31);
+				outputs.leftStickY = 128 + (directions.y * 124);
+			};
 			if (!inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
 				// Angle is 78.75
-				outputs.leftStickX = 128 + (directions.x * 25);
-				outputs.leftStickY = 128 + (directions.y * 126);
-			}
+				outputs.leftStickX = 128 + (directions.x * 24);
+				outputs.leftStickY = 128 + (directions.y * 125);
+			};
 			if (!inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
 				// Angle is 81.56
-				outputs.leftStickX = 128 + (directions.x * 19);
-				outputs.leftStickY = 128 + (directions.y * 127);
-			}
+				outputs.leftStickX = 128 + (directions.x * 18);
+				outputs.leftStickY = 128 + (directions.y * 126);
+			};
 			if (!inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
 				// Angle is 84.38
-				outputs.leftStickX = 128 + (directions.x * 13);
-				outputs.leftStickY = 128 + (directions.y * 128);
-			}
+				outputs.leftStickX = 128 + (directions.x * 12);
+				outputs.leftStickY = 128 + (directions.y * 127);
+			};
 			if (!inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
 				// Angle is 87.19
-				outputs.leftStickX = 128 + (directions.x * 7);
-				outputs.leftStickY = 128 + (directions.y * 128);
-			}
+				outputs.leftStickX = 128 + (directions.x * 6);
+				outputs.leftStickY = 128 + (directions.y * 127);
+			};
+
         }
         if(directions.vertical){
-            if(inputs.lf4){
-                temp = temp + 1;
-            }
-            if(inputs.lf3){
-                temp = temp + 2;
-            }
-            if(inputs.lf5){
-                temp = temp + 4;
-            }
-            if(inputs.rf5){
-                temp = temp + 8;
-            }
-            if(inputs.rf6){
-                temp = temp + 16;
-            }
-            if(inputs.rf7){
-                temp = temp + 32;
-            }
-            if(inputs.rf8){
-                temp = temp + 64;
-            }
-            if(inputs.rt3){
-                temp = temp + 128;
-            }
-            outputs.leftStickY = 128 + (directions.y * temp);
-            
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 1);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 2);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 3);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 4);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 5);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 6);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 7);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 8);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 9);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 10);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 11);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 12);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 13);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 14);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 15);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 16);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 17);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 18);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 19);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 20);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 21);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 22);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 23);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 24);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 25);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 26);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 27);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 28);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 29);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 30);
+			};
+			if (!inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 31);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 32);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 33);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 34);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 35);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 36);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 37);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 38);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 39);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 40);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 41);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 42);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 43);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 44);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 45);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 46);
+			};
+			if (!inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 47);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 48);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 49);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 50);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 51);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 52);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 53);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 54);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 55);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 56);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 57);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 58);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 59);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 60);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 61);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 62);
+			};
+			if (!inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 63);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 64);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 65);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 66);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 67);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 68);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 69);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 70);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 71);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 72);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 73);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 74);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 75);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 76);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 77);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 78);
+			};
+			if (inputs.lf4 && !inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 79);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 80);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 81);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 82);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 83);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 84);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 85);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 86);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 87);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 88);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 89);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 90);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 91);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 92);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 93);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 94);
+			};
+			if (inputs.lf4 && !inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 95);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 96);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 97);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 98);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 99);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 100);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 101);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 102);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 103);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 104);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 105);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 106);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 107);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 108);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 109);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 110);
+			};
+			if (inputs.lf4 && inputs.lf3 && !inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 111);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 112);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 113);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 114);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 115);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 116);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 117);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 118);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && !inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 119);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 120);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 121);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 122);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 123);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 124);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 125);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 126);
+			};
+			if (inputs.lf4 && inputs.lf3 && inputs.lf5 && inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8) {
+				outputs.leftStickY = 128 + (directions.y * 127);
+			};
+
+
         }
     }
     
-    if(inputs.lt1){
-        if(directions.horizontal){
-            if(inputs.lf4){
-                outputs.leftStickX = outputs.leftStickX + (directions.x * 1);
-            }
-            if(inputs.lf3){
-                outputs.leftStickX = outputs.leftStickX + (directions.x * 2);
-            }
-            if(inputs.lf5){
-                outputs.leftStickX = outputs.leftStickX + (directions.x * 4);
-            }
-            if(inputs.rf5){
-                outputs.leftStickX = outputs.leftStickX + (directions.x * 8);
-            }
-            if(inputs.rf6){
-                outputs.leftStickX = outputs.leftStickX + (directions.x * 16);
-            }
-            if(inputs.rf7){
-                outputs.leftStickX = outputs.leftStickX + (directions.x * 32);
-            }
-            if(inputs.rf8){
-                outputs.leftStickX = outputs.leftStickX + (directions.x * 64);
-            }
-            if(inputs.rt3){
-                outputs.leftStickX = outputs.leftStickX + (directions.x * 128);
-            }
-            if(inputs.rt4){
-                outputs.leftStickX = outputs.leftStickX + (directions.x * 256);
-            }
-            if(inputs.rt5){
-                outputs.leftStickX = outputs.leftStickX + (directions.x * 512);
-            }
-        }
-        if(directions.diagonal){
-            if(inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 7);
-                outputs.rightStickY = 128 + (directions.y * 69);
-            }
-            if(inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 14);
-                outputs.rightStickY = 128 + (directions.y * 68);
-            }
-            if(inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 21);
-                outputs.rightStickY = 128 + (directions.y * 66);
-            }
-            if(inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 28);
-                outputs.rightStickY = 128 + (directions.y * 63);
-            }
-            if(inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 35);
-                outputs.rightStickY = 128 + (directions.y * 60);
-            }
-            if(inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 41);
-                outputs.rightStickY = 128 + (directions.y * 56);
-            }
-            if(inputs.rf5 && !inputs.rf6 && !inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 46);
-                outputs.rightStickY = 128 + (directions.y * 52);
-            }
-            if(inputs.rf5 && !inputs.rf6 && !inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 52);
-                outputs.rightStickY = 128 + (directions.y * 46);
-            }
-            if(!inputs.rf5 && inputs.rf6 && inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 56);
-                outputs.rightStickY = 128 + (directions.y * 41);
-            }
-            if(!inputs.rf5 && inputs.rf6 && inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 60);
-                outputs.rightStickY = 128 + (directions.y * 35);
-            }
-            if(!inputs.rf5 && inputs.rf6 && !inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 63);
-                outputs.rightStickY = 128 + (directions.y * 28);
-            }
-            if(!inputs.rf5 && inputs.rf6 && !inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 66);
-                outputs.rightStickY = 128 + (directions.y * 21);
-            }
-            if(!inputs.rf5 && !inputs.rf6 && inputs.rf7 && inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 68);
-                outputs.rightStickY = 128 + (directions.y * 14);
-            }
-            if(!inputs.rf5 && !inputs.rf6 && inputs.rf7 && !inputs.rf8){
-                outputs.leftStickX = 128 + (directions.x * 69);
-                outputs.rightStickY = 128 + (directions.y * 7);
-            }
-        }
-    }
-
     if(inputs.rf4){
         outputs.leftStickX = 128 - (outputs.leftStickX - 128);
         outputs.leftStickY = 128 - (outputs.leftStickY - 128);
