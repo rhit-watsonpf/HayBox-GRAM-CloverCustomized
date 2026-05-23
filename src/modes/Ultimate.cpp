@@ -29,11 +29,11 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     // lf4 = pinkie left
     // lf5 = top middle left
     // update
-    outputs.a = inputs.rf1;
-    outputs.b = inputs.rf2 || inputs.rf6;
-    outputs.x = inputs.rf3;
-    outputs.y = inputs.rt1;
-    outputs.buttonR = inputs.rf7;
+    outputs.a = inputs.rt1;
+    outputs.b = inputs.rf1;
+    outputs.x = inputs.rf2 || rf6;
+    outputs.y = inputs.rf7;
+    outputs.buttonR = inputs.rf3;
     outputs.triggerRDigital = inputs.rf4;
     outputs.triggerLDigital = inputs.rf5;
     outputs.start = inputs.mb1;
